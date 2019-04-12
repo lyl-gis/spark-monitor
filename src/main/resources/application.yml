@@ -2,7 +2,7 @@ server:
   port: 13002
 spring:
   profiles:
-    active: zju
+    active: dev
   application:
     name: spark-monitor
   http:
