@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://namenode:3306/sdmap?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8
+    username: root
+    password: abc123
+    hikari:
+      auto-commit: true
+      maximum-pool-size: 20
+      minimum-idle: 5
+      idle-timeout: 600000
+      connection-test-query: select 1
+      connection-timeout: 3000
+    type: com.zaxxer.hikari.HikariDataSource
+setting:
+  hadoop-home: /usr/local/hadoop
+  spark-home: /usr/local/spark
+  jar-file: /u01/sdch-analysis.jar
+  spark-yarn-jars: hdfs://namenode:9000/spark/jar230/*
+  resource-config:
+    driver-memory: 4g
+    executor-memory: 4g
+    num-executors: 8
+    executor-cores: 1
+    parallelism: 24
