@@ -52,7 +52,7 @@ public class SparkServiceImpl implements SparkService, Closeable {
     public void submit(SparkTask sparkTask) {
         List<String> args = new ArrayList<>();
         Collections.addAll(args, "--jar", sparkTask.getJarFile(), "--class", sparkTask.getMainClass());
-        String[] appArgs = sparkTask.getArgs().isEmpty() ? new String[0] : sparkTask.getArgs().split("");
+        String[] appArgs = sparkTask.getArgs().isEmpty() ? new String[0] : sparkTask.getArgs().split(",");
         for (String arg : appArgs) {
             args.add("--arg");
             args.add(arg);
